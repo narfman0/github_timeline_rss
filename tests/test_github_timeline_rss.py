@@ -8,9 +8,7 @@ test_github_timeline_rss
 Tests for `github_timeline_rss` module.
 """
 
-
 import json
-import sys
 import unittest
 try:
     from unittest import mock

@@ -9,10 +9,6 @@ Github timeline RSS
 .. image:: https://img.shields.io/travis/narfman0/github_timeline_rss.svg
         :target: https://travis-ci.org/narfman0/github_timeline_rss
 
-.. image:: https://pyup.io/repos/github/narfman0/github_timeline_rss/shield.svg
-     :target: https://pyup.io/repos/github/narfman0/github_timeline_rss/
-     :alt: Updates
-
 
 Github timeline to RSS translation for easier feed integration
 
@@ -24,3 +20,18 @@ Features
 --------
 
 * Create RSS feeds from github timelines
+
+Usage
+-----
+
+After installing and configuraing dependencies (in e.g. virtualenv), run and test!
+
+Run flask app, e.g.::
+
+    FLASK_APP=github_timeline_rss.py flask run
+
+Test::
+
+    http://127.0.0.1:5000/narfman0
+
+Should show rss feed for activity for narfman0

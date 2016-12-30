@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -14,6 +14,7 @@ requirements = [
 test_requirements = [
     'coverage',
     'flake8',
+    'mock',
     'tox',
 ]
 
@@ -25,18 +26,14 @@ setup(
     author="Jon Robison",
     author_email='narfman0@gmail.com',
     url='https://github.com/narfman0/github_timeline_rss',
-    packages=[
-        'github_timeline_rss',
-    ],
-    package_dir={'github_timeline_rss':
-                 'github_timeline_rss'},
+    packages=find_packages(),
     include_package_data=True,
     install_requires=requirements,
     license="MIT license",
-    zip_safe=False,
+    zip_safe=True,
     keywords='github_timeline_rss',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -46,5 +43,5 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     test_suite='tests',
-    tests_require=test_requirements
+    tests_require=test_requirements,
 )
