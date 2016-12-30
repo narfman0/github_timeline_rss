@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='github_timeline_rss',
-    version='1.0.0',
+    version='1.1.0',
     description="Github timeline to RSS translation for easier feed integration",
     long_description=readme,
     author="Jon Robison",
@@ -31,7 +31,7 @@ setup(
     install_requires=requirements,
     license="MIT license",
     zip_safe=True,
-    keywords='github_timeline_rss',
+    keywords='github_timeline_rss github timeline rss atom',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
@@ -44,4 +44,7 @@ setup(
     ],
     test_suite='tests',
     tests_require=test_requirements,
+    entry_points={
+        'console_scripts': ['github_timeline_rss=github_timeline_rss.cli:main'],
+    }
 )

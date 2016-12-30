@@ -20,18 +20,27 @@ Features
 --------
 
 * Create RSS feeds from github timelines
+* Command line interface to dump to stdout or a file
 
 Usage
 -----
 
-After installing and configuraing dependencies (in e.g. virtualenv), run and test!
+Optional: set up virtualenv environment with::
+
+    virtualenv venv
+    source venv/bin/activate
+
+Install requirements::
+
+    pip install -r requirements_dev.txt
 
 Run flask app, e.g.::
 
+    cd github_timeline_rss
     FLASK_APP=github_timeline_rss.py flask run
 
 Test::
 
     http://127.0.0.1:5000/narfman0
 
-Should show rss feed for activity for narfman0
+Should show rss feed for activity for narfman0 from github!
