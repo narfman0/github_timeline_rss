@@ -9,6 +9,7 @@ Tests for `github_timeline_rss` module.
 """
 
 
+import json
 import sys
 import unittest
 try:
@@ -19,7 +20,8 @@ except ImportError:
 from github_timeline_rss import github_timeline_rss
 
 
-EXAMPLE = [
+EXAMPLE = json.loads("""
+[
   {
     "id": "12345678",
     "type": "WatchEvent",
@@ -27,7 +29,7 @@ EXAMPLE = [
       "id": 1234677,
       "login": "narfman0",
       "display_login": "narfman0",
-      "url": "https://api.github.com/users/narfman0",
+      "url": "https://api.github.com/users/narfman0"
     },
     "repo": {
       "id": 1234576,
@@ -37,10 +39,11 @@ EXAMPLE = [
     "payload": {
       "action": "started"
     },
-    "public": True,
-    "created_at": "2016-12-31T23:59:59Z",
+    "public": true,
+    "created_at": "2016-12-31T23:59:59Z"
   }
 ]
+""")
 
 def mocked_requests_get(*args, **kwargs):
     class MockResponse:
@@ -65,5 +68,4 @@ class TestGithubTimelineRSS(unittest.TestCase):
 
     def test_rssify(self):
         response = github_timeline_rss.feed('narfman0')
-        import pdb; pdb.set_trace()
-        pass
+        self.assertEquals(response.status_code, 200)

@@ -29,7 +29,8 @@ def feed(username):
         author = AUTHOR.format(username)
         feed_title = FEED_TITLE.format(user, event_type, target)
         url = URL.format(target)
+        date = datetime.strptime(status['created_at'], "%Y-%m-%dT%H:%M:%SZ" )
         feed.add(feed_title, feed_title, content_type='html',
                  author=author, url=url, id=status['id'],
-                 published=status['created_at'], updated=status['created_at'])
+                 published=date, updated=date)
     return feed.get_response()
