@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
-""" Entry point for web app """
 from datetime import datetime
 import requests
-from flask import Flask
 from werkzeug.contrib.atom import AtomFeed
 
 
-app = Flask(__name__)
 ENDPOINT = 'https://api.github.com/users/{username}/received_events'
 TITLE = "{username}'s github timeline"
 SUBTITLE = "Timeline as of {date}"
@@ -15,8 +12,7 @@ FEED_TITLE = "{} {} {}"
 URL = 'https://github.com/{}'
 
 
-@app.route('/<username>')
-def feed(username):
+def generate_feed(username):
     title = TITLE.format(username=username)
     url = ENDPOINT.format(username=username)
     subtitle = SUBTITLE.format(date=datetime.now())

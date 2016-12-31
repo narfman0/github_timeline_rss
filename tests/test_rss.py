@@ -9,13 +9,14 @@ Tests for `github_timeline_rss` module.
 """
 
 import json
+import sys
 import unittest
 try:
-    from unittest import mock
+    from unittest import patch
 except ImportError:
-    from mock import mock
+    from mock import patch
 
-from github_timeline_rss import github_timeline_rss
+from github_timeline_rss import cli, util
 
 
 EXAMPLE = json.loads("""
@@ -43,6 +44,7 @@ EXAMPLE = json.loads("""
 ]
 """)
 
+
 def mocked_requests_get(*args, **kwargs):
     class MockResponse:
         def __init__(self, data):
@@ -54,16 +56,16 @@ def mocked_requests_get(*args, **kwargs):
     return MockResponse(EXAMPLE, 200)
 
 
-
 class TestGithubTimelineRSS(unittest.TestCase):
-
-    @mock.patch('github_timeline_rss.github_timeline_rss.requests.get', side_effect=mocked_requests_get)
+    @patch('github_timeline_rss.util.requests.get', side_effect=mocked_requests_get)
     def setUp(self, mock_requests):
         pass
 
-    def tearDown(self):
-        pass
-
-    def test_rssify(self):
-        response = github_timeline_rss.feed('narfman0')
+    def test_feed(self):
+        response = util.generate_feed('narfman0')
         self.assertEquals(response.status_code, 200)
+
+    def test_cli(self):
+        testargs = ["github_timeline_rss", "narfman0"]
+        with patch.object(sys, 'argv', testargs):
+            cli.main()

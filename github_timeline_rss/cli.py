@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import argparse
 
-from github_timeline_rss.github_timeline_rss import feed
+from github_timeline_rss.util import generate_feed
 
 
 parser = argparse.ArgumentParser(description='Dump github RSS feeds')
@@ -11,7 +11,7 @@ args = parser.parse_args()
 
 
 def main():
-    text = feed(args.user).response
+    text = generate_feed(args.user).response
     if isinstance(text, list):
         text = b''.join(text)
     if args.file:
