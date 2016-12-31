@@ -15,7 +15,7 @@ def main():
     if isinstance(text, list):
         text = b''.join(text)
     if args.file:
-        with open(args.file, 'bw') as f:
+        with open(args.file, 'w') as f:
             f.write(text)
     else:
         print(text)

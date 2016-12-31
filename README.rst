@@ -44,3 +44,14 @@ Test::
     http://127.0.0.1:5000/narfman0
 
 Should show rss feed for activity for narfman0 from github!
+
+CLI
+---
+
+The command line interface may be used to dump a timeline to stdout::
+
+    github_timeline_rss narfman0
+
+or it may be directed at a file with `--file`::
+
+    github_timeline_rss narfman0 --file narfman0.atom

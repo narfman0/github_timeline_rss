@@ -20,7 +20,7 @@ test_requirements = [
 
 setup(
     name='github_timeline_rss',
-    version='1.2.0',
+    version='1.2.1',
     description="Github timeline to RSS translation for easier feed integration",
     long_description=readme,
     author="Jon Robison",
