@@ -56,6 +56,12 @@ coverage: ## check code coverage quickly with the default Python
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
+docker:
+	docker build . -t narfman0/github-timeline-rss
+
+docker-push: docker
+	docker push narfman0/github-timeline-rss
+
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
