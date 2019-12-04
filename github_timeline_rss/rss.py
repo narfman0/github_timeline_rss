@@ -8,6 +8,6 @@ from github_timeline_rss.util import generate_feed
 app = Flask(__name__)
 
 
-@app.route('/<username>')
+@app.route("/<username>")
 def feed(username):
     return generate_feed(username)
