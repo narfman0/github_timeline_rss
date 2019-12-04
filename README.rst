@@ -36,7 +36,6 @@ Install requirements::
 
 Run flask app, e.g.::
 
-    cd github_timeline_rss
     FLASK_APP=rss.py flask run
 
 Test::
