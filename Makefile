@@ -56,6 +56,9 @@ coverage: ## check code coverage quickly with the default Python
 	coverage html
 	$(BROWSER) htmlcov/index.html
 
+deploy-gcp:
+	gcloud app deploy
+
 docker:
 	docker build . -t narfman0/github-timeline-rss
 
